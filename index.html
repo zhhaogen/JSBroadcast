@@ -1,0 +1,24 @@
+<html>
+<head>
+<meta charset="utf-8">
+<title>ShareWorker</title> 
+<script src="broadcast.js" charset="utf-8" type="text/javascript" ></script>
+</head>
+<body>
+<h3><a href="" target="_blank" >点击新开一个标签</a></h3>
+<label for="inputText" >输入内容</label>
+<input id="inputText" type="text" />
+<script>
+broadcast.on("onchange",function(e,data){
+	inputText.value=data.value;
+});
+inputText.onchange=function()
+{
+	var value=inputText.value;
+	var type="onchange";
+	broadcast.send(type,{value});//发送消息
+};
+
+</script>
+</body>
+</html>
